@@ -42,3 +42,11 @@ tape('input is already under max', function (t) {
 
   t.end()
 })
+
+tape('split errors when you give it zero', function (t) {
+  var bytes = require('crypto').randomBytes(256)
+  t.throws(function () {
+    var out = split(bytes, 0)
+  })
+  t.end()
+})
